@@ -1,0 +1,13 @@
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\bin\Release\WindowsFormsApp1.exe.config
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\bin\Release\WindowsFormsApp1.exe
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\bin\Release\WindowsFormsApp1.pdb
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\bin\Release\System.Data.SqlClient.dll
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\bin\Release\System.Data.SqlClient.xml
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.Form1.resources
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.exe
+C:\Users\Elvis\source\repos\ConceptApp\WindowsFormsApp1\obj\Release\WindowsFormsApp1.pdb
