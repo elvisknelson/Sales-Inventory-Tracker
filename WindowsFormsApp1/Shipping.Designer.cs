@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class Shipping
     {
         /// <summary>
         /// Required designer variable.
@@ -41,13 +41,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGetBin
             // 
-            this.btnGetBin.Location = new System.Drawing.Point(415, 113);
+            this.btnGetBin.Location = new System.Drawing.Point(239, 345);
             this.btnGetBin.Name = "btnGetBin";
-            this.btnGetBin.Size = new System.Drawing.Size(75, 23);
+            this.btnGetBin.Size = new System.Drawing.Size(144, 23);
             this.btnGetBin.TabIndex = 0;
             this.btnGetBin.Text = "Get Bin";
             this.btnGetBin.UseVisualStyleBackColor = true;
@@ -56,7 +60,7 @@
             // lblSalesOrderDate
             // 
             this.lblSalesOrderDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSalesOrderDate.Location = new System.Drawing.Point(59, 34);
+            this.lblSalesOrderDate.Location = new System.Drawing.Point(239, 118);
             this.lblSalesOrderDate.Name = "lblSalesOrderDate";
             this.lblSalesOrderDate.Size = new System.Drawing.Size(144, 23);
             this.lblSalesOrderDate.TabIndex = 1;
@@ -64,7 +68,7 @@
             // lblSalesOrder
             // 
             this.lblSalesOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSalesOrder.Location = new System.Drawing.Point(243, 34);
+            this.lblSalesOrder.Location = new System.Drawing.Point(239, 173);
             this.lblSalesOrder.Name = "lblSalesOrder";
             this.lblSalesOrder.Size = new System.Drawing.Size(144, 23);
             this.lblSalesOrder.TabIndex = 2;
@@ -72,7 +76,7 @@
             // lblSalesPromise
             // 
             this.lblSalesPromise.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSalesPromise.Location = new System.Drawing.Point(425, 34);
+            this.lblSalesPromise.Location = new System.Drawing.Point(239, 224);
             this.lblSalesPromise.Name = "lblSalesPromise";
             this.lblSalesPromise.Size = new System.Drawing.Size(144, 23);
             this.lblSalesPromise.TabIndex = 3;
@@ -80,16 +84,16 @@
             // lblSalesPerson
             // 
             this.lblSalesPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSalesPerson.Location = new System.Drawing.Point(606, 34);
+            this.lblSalesPerson.Location = new System.Drawing.Point(239, 283);
             this.lblSalesPerson.Name = "lblSalesPerson";
             this.lblSalesPerson.Size = new System.Drawing.Size(144, 23);
             this.lblSalesPerson.TabIndex = 4;
             // 
             // txtBinSalesId
             // 
-            this.txtBinSalesId.Location = new System.Drawing.Point(300, 113);
+            this.txtBinSalesId.Location = new System.Drawing.Point(239, 319);
             this.txtBinSalesId.Name = "txtBinSalesId";
-            this.txtBinSalesId.Size = new System.Drawing.Size(100, 20);
+            this.txtBinSalesId.Size = new System.Drawing.Size(144, 20);
             this.txtBinSalesId.TabIndex = 5;
             // 
             // txtSalesPerson
@@ -150,11 +154,51 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Promise Date";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(236, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Sales Date";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(236, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Sales Order";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(236, 203);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Promise Date";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(236, 262);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Sales Person";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -168,8 +212,9 @@
             this.Controls.Add(this.lblSalesOrder);
             this.Controls.Add(this.lblSalesOrderDate);
             this.Controls.Add(this.btnGetBin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Concept Bins";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +235,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -11,11 +11,12 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Shipping : Form
     {
-        public Form1()
+        public Shipping()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnGetBin_Click(object sender, EventArgs e)
@@ -123,22 +124,21 @@ namespace WindowsFormsApp1
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     connection.Open();
-                    string sql = "INSERT INTO BINS(orderDate,salesOrder,promiseDate,promiseDate,salesPerson) VALUES(@param1,@param2,@param3,@param4)";
+                    string sql = "INSERT INTO BINS(orderDate,salesOrder,promiseDate,salesPerson) VALUES(@param1,@param2,@param3,@param4)";
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
                         cmd.Parameters.Add("@param1", SqlDbType.DateTime).Value = System.DateTime.Now;
                         cmd.Parameters.Add("@param2", SqlDbType.Int).Value = Convert.ToInt32(txtSalesOrder.Text);
                         cmd.Parameters.Add("@param3", SqlDbType.DateTime).Value = Convert.ToDateTime(txtPromiseDate.Text);
-                        cmd.Parameters.Add("@param3", SqlDbType.VarChar, 50).Value = txtPromiseDate.Text;
+                        cmd.Parameters.Add("@param4", SqlDbType.VarChar, 50).Value = txtSalesPerson.Text;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Success");
                     }
                 }
             }
             catch (SqlException ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
     }

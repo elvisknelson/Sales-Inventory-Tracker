@@ -1,0 +1,14 @@
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Shipping.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csproj.GenerateResource.cache
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csproj.CoreCompileInputs.cache
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csproj.CopyComplete
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csprojAssemblyReference.cache
