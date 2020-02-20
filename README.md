@@ -1,3 +1,3 @@
 # Sales-Inventory-Tracker
 
-# H3Creating a simple Inventory/Sales Tracker for a potential client
+### H3 Creating a simple Inventory/Sales Tracker for a potential client
