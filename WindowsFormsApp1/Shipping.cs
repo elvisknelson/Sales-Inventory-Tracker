@@ -23,20 +23,21 @@ namespace WindowsFormsApp1
         {
             int salesOrder = -1;
 
-            if (isValid(txtBinSalesId.Text))
+            if (Utility.IsValid(txtBinSalesId.Text))
             {
                 salesOrder = Convert.ToByte(txtBinSalesId.Text);
 
-                object[] binInfo = new object[4];
+                List<object> binInfo = new List<object>();
 
-                binInfo = Pull_BinInfo(salesOrder);
+                DataService dataService = new DataService();
+                binInfo = dataService.GetData("SELECT * FROM BINS");
 
                 if (binInfo[0] != null)
                 {
-                    lblSalesOrderDate.Text = binInfo[0].ToString();
-                    lblSalesOrder.Text = binInfo[1].ToString();
-                    lblSalesPromise.Text = binInfo[2].ToString();
-                    lblSalesPerson.Text = binInfo[3].ToString();
+                    lblSalesOrderDate.Text = binInfo[4].ToString();
+                    lblSalesOrder.Text = binInfo[5].ToString();
+                    lblSalesPromise.Text = binInfo[6].ToString();
+                    lblSalesPerson.Text = binInfo[7].ToString();
                 }
                 else
                 {
@@ -47,68 +48,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please enter a Valid Sales Order", "Invalid Sales Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        public Boolean isValid(string str)
-        {
-            Boolean result = false;
-            byte parseResult;
-
-            if(str.Length > 0 && byte.TryParse(str, out parseResult))
-            {
-                result = true;
-            }
-
-            return result;
-        }
-
-        private object[] Pull_BinInfo(int salesOrder)
-        {
-            object[] result = new object[4];
-
-            try
-            {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "conceptserv.database.windows.net";
-                builder.UserID = "sysadm";
-                builder.Password = "Password42";
-                builder.InitialCatalog = "conceptDB";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT * FROM BINS WHERE salesOrder = " + salesOrder);
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                if(reader.HasRows)
-                                {
-                                    result[0] = reader[0];
-                                    result[1] = reader[1];
-                                    result[2] = reader[2];
-                                    result[3] = reader[3];
-                                }
-                                else
-                                {
-                                    return null;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            return result;
         }
 
         private void BtnAddSale_Click(object sender, EventArgs e)
@@ -140,6 +79,16 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Shipping_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

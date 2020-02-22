@@ -21,42 +21,16 @@ namespace WindowsFormsApp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            DataService service = new DataService();
+            if (service.ValidLogin(txtUserName.Text))
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "conceptserv.database.windows.net";
-                builder.UserID = "sysadm";
-                builder.Password = "Password42";
-                builder.InitialCatalog = "conceptDB";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT * FROM USERS WHERE userName = '" + txtUserName.Text + "'");
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                this.Hide();
-                                Form shippingForm = new Shipping();
-                                shippingForm.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Please enter a valid Username", "Invalid Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                }
+                this.Hide();
+                Form shippingForm = new Shipping();
+                shippingForm.Show();
             }
-            catch (SqlException ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Please enter a valid Username", "Invalid Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
