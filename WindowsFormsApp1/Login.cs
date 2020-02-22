@@ -25,8 +25,8 @@ namespace WindowsFormsApp1
             if (service.ValidLogin(txtUserName.Text))
             {
                 this.Hide();
-                Form shippingForm = new Shipping();
-                shippingForm.Show();
+                Form mainForm = new Main();
+                mainForm.Show();
             }
             else
             {

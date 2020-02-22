@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,22 @@ namespace WindowsFormsApp1
             builder.UserID = "sysadm";
             builder.Password = "Password42";
             builder.InitialCatalog = "conceptDB";
+        }
+
+        public DataTable SearchBins(string startDate, string endDate)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(builder.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM BINS WHERE Promise_Date BETWEEN '" + startDate + "' AND '" + endDate + "'", con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    dt.Load(cmd.ExecuteReader());
+                    con.Close();
+                }
+            }
+            return dt;
         }
 
         public bool ValidLogin(string userName)
