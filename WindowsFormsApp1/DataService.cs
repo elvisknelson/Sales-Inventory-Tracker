@@ -27,7 +27,8 @@ namespace WindowsFormsApp1
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(builder.ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM BINS WHERE Promise_Date BETWEEN '" + startDate + "' AND '" + endDate + "'", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Sales_Order AS 'Sales #', Customer, Size, Estimated_Hours AS 'Estimated Hours'," +
+                    "Actual_Hours AS 'Actual Hours', Promise_Date AS 'Promise Date' FROM SALES WHERE Promise_Date BETWEEN '" + startDate + "' AND '" + endDate + "'", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -73,45 +74,20 @@ namespace WindowsFormsApp1
             
         }
 
-        public List<object> GetData(string query)
+        public DataTable GetData(string query)
         {
-            List<object> result = new List<object>();
-
-            try
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(builder.ConnectionString))
             {
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    string sql = query;
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        connection.Open();
-                        using (SqlDataReader rdr = command.ExecuteReader())
-                        {
-                            while (rdr.Read())
-                            {
-                                if (rdr.HasRows)
-                                {
-                                    for(int i = 0; i < rdr.FieldCount; i++)
-                                    {
-                                        result.Add(rdr[i]);
-                                    }
-                                }
-                                else
-                                {
-                                    return null;
-                                }
-                            }
-                        }
-                    }
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    dt.Load(cmd.ExecuteReader());
+                    con.Close();
                 }
             }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            return result;
+            return dt;
         }
     }
 }

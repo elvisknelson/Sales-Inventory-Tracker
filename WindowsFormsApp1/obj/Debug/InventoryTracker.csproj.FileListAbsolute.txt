@@ -25,6 +25,9 @@ C:\Users\Elvis\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\I
 C:\Users\Elvis\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csproj.CopyComplete
 C:\Users\Elvis\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Elvis\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Find.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Main.resources
-C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.New.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SearchCustomer.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SearchSales.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSale.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewCustomer.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BinDetails.resources

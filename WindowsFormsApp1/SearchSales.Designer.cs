@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Find
+    partial class SearchSales
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,15 +33,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvSales = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
             // dtEndDate
             // 
             this.dtEndDate.Checked = false;
             this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtEndDate.Location = new System.Drawing.Point(458, 391);
+            this.dtEndDate.Location = new System.Drawing.Point(676, 505);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(200, 20);
             this.dtEndDate.TabIndex = 14;
@@ -49,7 +49,7 @@
             // dtStartDate
             // 
             this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtStartDate.Location = new System.Drawing.Point(236, 391);
+            this.dtStartDate.Location = new System.Drawing.Point(451, 505);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(200, 20);
             this.dtStartDate.TabIndex = 13;
@@ -57,45 +57,50 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 393);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(657, 507);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.Size = new System.Drawing.Size(13, 18);
             this.label2.TabIndex = 12;
             this.label2.Text = "-";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 394);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(355, 505);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(90, 18);
             this.label1.TabIndex = 11;
             this.label1.Text = "Date Range:";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(3, 387);
+            this.btnSearch.Location = new System.Drawing.Point(46, 497);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(98, 27);
+            this.btnSearch.Size = new System.Drawing.Size(236, 27);
             this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "Search Bins";
+            this.btnSearch.Text = "Search Orders";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
-            // dataGridView1
+            // dgvSales
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 378);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvSales.AllowUserToAddRows = false;
+            this.dgvSales.AllowUserToDeleteRows = false;
+            this.dgvSales.AllowUserToResizeColumns = false;
+            this.dgvSales.AllowUserToResizeRows = false;
+            this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSales.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvSales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSales.Location = new System.Drawing.Point(3, 3);
+            this.dgvSales.Name = "dgvSales";
+            this.dgvSales.ReadOnly = true;
+            this.dgvSales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvSales.Size = new System.Drawing.Size(978, 478);
+            this.dgvSales.TabIndex = 9;
+            this.dgvSales.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // Find
             // 
@@ -106,11 +111,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvSales);
             this.Name = "Find";
-            this.Size = new System.Drawing.Size(786, 421);
+            this.Size = new System.Drawing.Size(984, 541);
             this.Load += new System.EventHandler(this.Find_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +128,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSales;
     }
 }

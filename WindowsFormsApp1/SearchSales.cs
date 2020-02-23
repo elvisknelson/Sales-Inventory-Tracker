@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Find : UserControl
+    public partial class SearchSales : UserControl
     {
-        public Find()
+        public SearchSales()
         {
             InitializeComponent();
         }
@@ -25,12 +25,17 @@ namespace WindowsFormsApp1
         private void BindGrid()
         {
             DataService dataService = new DataService();
-            dataGridView1.DataSource = dataService.SearchBins(dtStartDate.Text, dtEndDate.Text);
+            dgvSales.DataSource = dataService.SearchBins(dtStartDate.Text, dtEndDate.Text);
         }
 
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             BindGrid();
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
         }
     }
 }

@@ -49,12 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataService.cs" />
-    <Compile Include="Find.cs">
+    <Compile Include="BinDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BinDetails.Designer.cs">
+      <DependentUpon>BinDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCustomer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Find.Designer.cs">
-      <DependentUpon>Find.cs</DependentUpon>
+    <Compile Include="NewCustomer.Designer.cs">
+      <DependentUpon>NewCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bin.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="DataService.cs" />
+    <Compile Include="Sale.cs" />
+    <Compile Include="SearchCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SearchCustomer.Designer.cs">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SearchSales.Designer.cs">
+      <DependentUpon>SearchSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -68,17 +89,26 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="New.cs">
+    <Compile Include="NewSale.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="New.Designer.cs">
-      <DependentUpon>New.cs</DependentUpon>
+    <Compile Include="NewSale.Designer.cs">
+      <DependentUpon>NewSale.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
-    <EmbeddedResource Include="Find.resx">
-      <DependentUpon>Find.cs</DependentUpon>
+    <EmbeddedResource Include="BinDetails.resx">
+      <DependentUpon>BinDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCustomer.resx">
+      <DependentUpon>NewCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchCustomer.resx">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchSales.resx">
+      <DependentUpon>SearchSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -86,8 +116,8 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New.resx">
-      <DependentUpon>New.cs</DependentUpon>
+    <EmbeddedResource Include="NewSale.resx">
+      <DependentUpon>NewSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

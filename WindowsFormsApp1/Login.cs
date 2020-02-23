@@ -26,12 +26,8 @@ namespace WindowsFormsApp1
             {
                 this.Hide();
                 Form mainForm = new Main();
-                mainForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid Username", "Invalid Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
+  
 }
