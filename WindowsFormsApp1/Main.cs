@@ -16,6 +16,7 @@ namespace ConceptApp
         private TabPage searchSalesTab;
         private TabPage newCustTab;
         private TabPage searchCustTab;
+        private TabPage shippingScheduleTab;
 
         public Main()
         {
@@ -85,6 +86,20 @@ namespace ConceptApp
                         tabControl.TabPages.Add(searchCustTab);
                         searchCustTab.Controls.Add(new SearchCustomer());
                         tabControl.SelectedTab = searchCustTab;
+                    }
+                }
+                else if (e.Node.Name == "ShippingScheduleNode")
+                {
+                    if (shippingScheduleTab != null)
+                    {
+                        tabControl.SelectedTab = shippingScheduleTab;
+                    }
+                    else
+                    {
+                        shippingScheduleTab = new TabPage("Shipping Schedule");
+                        tabControl.TabPages.Add(shippingScheduleTab);
+                        shippingScheduleTab.Controls.Add(new ShippingSchedule());
+                        tabControl.SelectedTab = shippingScheduleTab;
                     }
                 }
             }

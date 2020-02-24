@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShippingSchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShippingSchedule.Designer.cs">
+      <DependentUpon>ShippingSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlParam.cs" />
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="SaleDetails.resx">
@@ -130,6 +136,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShippingSchedule.resx">
+      <DependentUpon>ShippingSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

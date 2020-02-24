@@ -15,6 +15,7 @@ namespace ConceptApp
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         DataService dataService = new DataService();
+        int row;
 
         public NewCustomer()
         {
@@ -37,7 +38,7 @@ namespace ConceptApp
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            if(Utility.IsValidString(txtCustomerName.Text) && Utility.IsValidString(txtCustomerAddress.Text))
+            if(txtCustomerAddress.TextLength > 0 && txtCustomerName.TextLength > 0)
             {
                 try
                 {
@@ -72,6 +73,48 @@ namespace ConceptApp
         {
             txtCustomerAddress.Clear();
             txtCustomerName.Clear();
+        }
+
+        private void dgvCustomers_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = dgvCustomers.HitTest(e.X, e.Y).RowIndex;
+
+                if (currentMouseOverRow >= 0)
+                {
+                    row = currentMouseOverRow;
+                    cMSCustomer.Show(dgvCustomers, new Point(e.X, e.Y));
+                }
+            }
+        }
+
+        private void deleteCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Delete " + dgvCustomers.Rows[row].Cells[0].Value.ToString(),
+                                                   "Confirm Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if(result == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    {
+                        connection.Open();
+                        string sql = "DELETE FROM CUSTOMERS WHERE Name = '" + dgvCustomers.Rows[row].Cells[0].Value.ToString() + "'";
+                        using (SqlCommand cmd = new SqlCommand(sql, connection))
+                        {
+                            cmd.CommandType = CommandType.Text;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    MessageBox.Show(dgvCustomers.Rows[row].Cells[0].Value.ToString() + " Deleted Successfully");
+                    dgvCustomers.DataSource = dataService.GetDataTable("SELECT Name AS 'Customer Name', Address FROM CUSTOMERS");
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

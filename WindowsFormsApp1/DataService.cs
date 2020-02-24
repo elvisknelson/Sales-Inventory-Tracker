@@ -69,11 +69,6 @@ namespace ConceptApp
             return result;
         }
 
-        public void AddData(string table, params SqlParam[] sqlParam)
-        {
-            
-        }
-
         public DataTable GetDataTable(string query)
         {
             DataTable dt = new DataTable();
@@ -88,6 +83,38 @@ namespace ConceptApp
                 }
             }
             return dt;
+        }
+
+        public object GetSingleValue(string query)
+        {
+            object result = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    connection.Open();
+                    string sql = query;
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while(reader.Read())
+                        {
+                            if(reader.HasRows)
+                            {
+                                result = reader.GetValue(0);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return result;
         }
     }
 }

@@ -38,6 +38,9 @@
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Customers", new System.Windows.Forms.TreeNode[] {
             treeNode4,
             treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Shipping Schedule");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Shipping", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
             this.tabControl = new System.Windows.Forms.TabControl();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
@@ -68,9 +71,14 @@
             treeNode5.Text = "Search Customers";
             treeNode6.Name = "CustomerNode";
             treeNode6.Text = "Customers";
+            treeNode7.Name = "ShippingScheduleNode";
+            treeNode7.Text = "Shipping Schedule";
+            treeNode8.Name = "ShippingNode";
+            treeNode8.Text = "Shipping";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3,
-            treeNode6});
+            treeNode6,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(196, 582);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -80,6 +88,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1186, 582);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.tabControl);

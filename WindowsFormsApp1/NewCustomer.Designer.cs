@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtCustomerAddress = new System.Windows.Forms.TextBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.btnAddCustomer = new System.Windows.Forms.Button();
+            this.cMSCustomer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.viewDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            this.cMSCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +92,7 @@
             this.dgvCustomers.ReadOnly = true;
             this.dgvCustomers.Size = new System.Drawing.Size(976, 425);
             this.dgvCustomers.TabIndex = 5;
+            this.dgvCustomers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCustomers_MouseClick);
             // 
             // btnAddCustomer
             // 
@@ -98,6 +104,27 @@
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            // 
+            // cMSCustomer
+            // 
+            this.cMSCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewDetailsToolStripMenuItem,
+            this.deleteCustomerToolStripMenuItem});
+            this.cMSCustomer.Name = "cMSCustomer";
+            this.cMSCustomer.Size = new System.Drawing.Size(181, 70);
+            // 
+            // viewDetailsToolStripMenuItem
+            // 
+            this.viewDetailsToolStripMenuItem.Name = "viewDetailsToolStripMenuItem";
+            this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.viewDetailsToolStripMenuItem.Text = "View Details";
+            // 
+            // deleteCustomerToolStripMenuItem
+            // 
+            this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
+            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
+            this.deleteCustomerToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomerToolStripMenuItem_Click);
             // 
             // NewCustomer
             // 
@@ -113,6 +140,7 @@
             this.Size = new System.Drawing.Size(976, 561);
             this.Load += new System.EventHandler(this.NewCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            this.cMSCustomer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +154,8 @@
         private System.Windows.Forms.TextBox txtCustomerAddress;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.ContextMenuStrip cMSCustomer;
+        private System.Windows.Forms.ToolStripMenuItem viewDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteCustomerToolStripMenuItem;
     }
 }
