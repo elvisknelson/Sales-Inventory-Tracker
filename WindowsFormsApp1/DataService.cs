@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace ConceptApp
 {
     class DataService
     {
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(builder.ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT Sales_Order AS 'Sales #', Customer, Size, Estimated_Hours AS 'Estimated Hours'," +
+                using (SqlCommand cmd = new SqlCommand("SELECT Sales_Order AS 'Sales #', Customer, Estimated_Hours AS 'Estimated Hours'," +
                     "Actual_Hours AS 'Actual Hours', Promise_Date AS 'Promise Date' FROM SALES WHERE Promise_Date BETWEEN '" + startDate + "' AND '" + endDate + "'", con))
                 {
                     cmd.CommandType = CommandType.Text;
@@ -69,12 +69,12 @@ namespace WindowsFormsApp1
             return result;
         }
 
-        public void AddData(string column, string data)
+        public void AddData(string table, params SqlParam[] sqlParam)
         {
             
         }
 
-        public DataTable GetData(string query)
+        public DataTable GetDataTable(string query)
         {
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(builder.ConnectionString))

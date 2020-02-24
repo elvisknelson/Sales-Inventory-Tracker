@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace ConceptApp
 {
     partial class Login
     {
@@ -58,7 +58,7 @@
             // picLogo
             // 
             this.picLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picLogo.Image = global::WindowsFormsApp1.Properties.Resources.concept;
+            this.picLogo.Image = global::ConceptApp.Properties.Resources.concept;
             this.picLogo.Location = new System.Drawing.Point(32, 11);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(228, 78);

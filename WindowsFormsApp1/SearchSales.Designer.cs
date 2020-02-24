@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace ConceptApp
 {
     partial class SearchSales
     {
@@ -100,9 +100,9 @@
             this.dgvSales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvSales.Size = new System.Drawing.Size(978, 478);
             this.dgvSales.TabIndex = 9;
-            this.dgvSales.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dgvSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSales_CellDoubleClick);
             // 
-            // Find
+            // SearchSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,7 +112,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgvSales);
-            this.Name = "Find";
+            this.Name = "SearchSales";
             this.Size = new System.Drawing.Size(984, 541);
             this.Load += new System.EventHandler(this.Find_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();

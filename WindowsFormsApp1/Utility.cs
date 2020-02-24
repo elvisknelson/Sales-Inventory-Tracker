@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1
+namespace ConceptApp
 {
     public static class Utility
     {
-        public static bool IsValid(string str)
+        public static bool IsValidString(string str)
         {
             bool result = false;
             int parseResult;

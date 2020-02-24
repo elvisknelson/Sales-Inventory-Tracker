@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace ConceptApp
 {
     public partial class SearchSales : UserControl
     {
@@ -33,9 +33,10 @@ namespace WindowsFormsApp1
             BindGrid();
         }
 
-        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvSales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            SaleDetails form = new SaleDetails(Convert.ToInt32(dgvSales.Rows[e.RowIndex].Cells[0].Value));
+            form.ShowDialog();
         }
     }
 }

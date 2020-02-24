@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace WindowsFormsApp1
+namespace ConceptApp
 {
     public partial class NewSale : UserControl
     {
         //TODO(Elvis): Mass validation (Validation class?)
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         Sale sale;
+        DataService dataService = new DataService();
 
         public NewSale()
         {
@@ -26,49 +27,130 @@ namespace WindowsFormsApp1
             builder.InitialCatalog = "conceptDB";
         }
 
+        /// <summary>
+        /// Form Initial load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void New_Load(object sender, EventArgs e)
         {
             bindComboBox();
         }
 
+        /// <summary>
+        /// Binds the Combobox to Customer Table
+        /// </summary>
         private void bindComboBox()
         {
             DataService dataService = new DataService();
-            cboCustomers.DataSource = dataService.GetData("SELECT * FROM CUSTOMERS");
+            cboCustomers.DataSource = dataService.GetDataTable("SELECT * FROM CUSTOMERS");
             cboCustomers.DisplayMember = "Name";
             cboCustomers.ValueMember = "Id";
         }
 
+        /// <summary>
+        /// Creates a Sale Object to store all the relevant sales information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddSale_Click(object sender, EventArgs e)
         {
+            btnAddSale.Enabled = false;
             sale = new Sale(Convert.ToInt32(txtSalesOrder.Text));
         }
 
+        /// <summary>
+        /// Adds a new bin to the Sales object and populates the DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddBin_Click(object sender, EventArgs e)
         {
-            CheckBox[] checkBoxes = { chBSK, chBMW, ckB3VG, ckB4SIA, ckBAH2410, ckBAR7000, ckBAR8000, ckBFMB, ckBGN, ckBIP, ckBLA, ckBPH };
-            string options = "";
-            foreach (CheckBox box in checkBoxes)
+            if(sale != null)
             {
-                if (box.Checked)
+                CheckBox[] checkBoxes = { chBSK, chBMW, ckB3VG, ckB4SIA, ckBAH2410, ckBAR7000, ckBAR8000, ckBFMB, ckBGN, ckBIP, ckBLA, ckBPH };
+                string options = "";
+                string comma = "";
+                foreach (CheckBox box in checkBoxes)
                 {
-                    options += box.Name.Substring(3) + ", ";
+                    if (box.Checked)
+                    {
+                        options += comma + box.Name.Substring(3);
+                        comma = ", ";
+                    }
                 }
-            }
 
-            Bin bin = new Bin(sale.salesOrder, txtBinSize.Text, Convert.ToDateTime(dtpPromiseDate.Text), Convert.ToInt32(txtHoursWorked.Text), options);
-            sale.bins.Add(bin);
-            updateGrid();
+                Bin bin = new Bin(sale.salesOrder, txtBinSize.Text, Convert.ToDateTime(dtpPromiseDate.Text), Convert.ToInt32(txtHoursWorked.Text), options);
+                sale.bins.Add(bin);
+                updateGrid();
+            }
+            else
+            {
+                MessageBox.Show("Please create a new sales order before adding bins.", "No Sales Order Created", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
+        /// <summary>
+        /// Updates the DataGridView
+        /// </summary>
         private void updateGrid()
         {
             dgvCurrentSale.DataSource = sale.bins.ToList();
         }
 
+        /// <summary>
+        /// Adds the Sales information to the Sales Table and the Bin information to their respective tables
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCompleteSale_Click(object sender, EventArgs e)
         {
+            if(sale != null)
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    {
+                        connection.Open();
+                        string sql = "INSERT INTO SALES(Sales_Order, Estimated_Hours, Actual_Hours, Promise_Date, Customer, Num_Bins) " +
+                                     "VALUES(@param1, @param2, @param3, @param4, @param5, @param6)";
+                        using (SqlCommand cmd = new SqlCommand(sql, connection))
+                        {
+                            cmd.Parameters.Add("@param1", SqlDbType.Int).Value = txtSalesOrder.Text;
+                            cmd.Parameters.Add("@param2", SqlDbType.Int).Value = txtHoursWorked.Text;
+                            cmd.Parameters.Add("@param3", SqlDbType.Int).Value = 55; //TODO(Elvis) Fix this 
+                            cmd.Parameters.Add("@param4", SqlDbType.DateTime).Value = dtpPromiseDate.Text;
+                            cmd.Parameters.Add("@param5", SqlDbType.VarChar).Value = cboCustomers.Text;
+                            cmd.Parameters.Add("@param6", SqlDbType.Int).Value = sale.bins.Count;
+                            cmd.CommandType = CommandType.Text;
+                            cmd.ExecuteNonQuery();
+                        }
 
+                        foreach (Bin bin in sale.bins)
+                        {
+                            string optionsql = "INSERT INTO BINS(Sales_Order, Size, Options) VALUES(@param1,@param2,@param3)";
+                            using (SqlCommand cmd = new SqlCommand(optionsql, connection))
+                            {
+                                cmd.Parameters.Add("@param1", SqlDbType.Int).Value = txtSalesOrder.Text;
+                                cmd.Parameters.Add("@param2", SqlDbType.VarChar).Value = bin.binSize;
+                                cmd.Parameters.Add("@param3", SqlDbType.VarChar).Value = bin.options;
+                                cmd.CommandType = CommandType.Text;
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        MessageBox.Show("Sale Created Successfully");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please create a new sales order before completing order.", "No Sales Order Created", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace ConceptApp
 {
     partial class NewSale
     {
@@ -264,6 +264,7 @@
             // 
             // cboCustomers
             // 
+            this.cboCustomers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustomers.FormattingEnabled = true;
             this.cboCustomers.Location = new System.Drawing.Point(255, 78);
             this.cboCustomers.Name = "cboCustomers";
@@ -315,7 +316,7 @@
             this.btnAddBin.Name = "btnAddBin";
             this.btnAddBin.Size = new System.Drawing.Size(200, 23);
             this.btnAddBin.TabIndex = 55;
-            this.btnAddBin.Text = "Add Bin";
+            this.btnAddBin.Text = "Add Bin to Order";
             this.btnAddBin.UseVisualStyleBackColor = true;
             this.btnAddBin.Click += new System.EventHandler(this.btnAddBin_Click);
             // 
