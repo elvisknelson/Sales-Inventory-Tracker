@@ -55,8 +55,16 @@ namespace ConceptApp
         /// <param name="e"></param>
         private void btnAddSale_Click(object sender, EventArgs e)
         {
-            btnAddSale.Enabled = false;
-            sale = new Sale(Convert.ToInt32(txtSalesOrder.Text));
+            
+            if(Utility.IsValidString(txtSalesOrder.Text))
+            {
+                btnAddSale.Enabled = false;
+                sale = new Sale(Convert.ToInt32(txtSalesOrder.Text));
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid Sales Order Number", "Invalid Order Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         /// <summary>
@@ -105,15 +113,15 @@ namespace ConceptApp
         /// <param name="e"></param>
         private void btnCompleteSale_Click(object sender, EventArgs e)
         {
-            if(sale != null)
+            if(sale != null && sale.bins.Count > 0)
             {
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                     {
                         connection.Open();
-                        string sql = "INSERT INTO SALES(Sales_Order, Estimated_Hours, Actual_Hours, Promise_Date, Customer, Num_Bins) " +
-                                     "VALUES(@param1, @param2, @param3, @param4, @param5, @param6)";
+                        string sql = "INSERT INTO SALES(Sales_Order, Estimated_Hours, Actual_Hours, Promise_Date, Customer, Num_Bins, Notes) " +
+                                     "VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
                         using (SqlCommand cmd = new SqlCommand(sql, connection))
                         {
                             cmd.Parameters.Add("@param1", SqlDbType.Int).Value = txtSalesOrder.Text;
@@ -122,6 +130,7 @@ namespace ConceptApp
                             cmd.Parameters.Add("@param4", SqlDbType.DateTime).Value = dtpPromiseDate.Text;
                             cmd.Parameters.Add("@param5", SqlDbType.VarChar).Value = cboCustomers.Text;
                             cmd.Parameters.Add("@param6", SqlDbType.Int).Value = sale.bins.Count;
+                            cmd.Parameters.Add("@param7", SqlDbType.VarChar).Value = txtNotes.Text;
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
                         }
@@ -140,6 +149,7 @@ namespace ConceptApp
                         }
 
                         MessageBox.Show("Sale Created Successfully");
+                        ClearForm();
                     }
                 }
                 catch (SqlException ex)
@@ -149,8 +159,36 @@ namespace ConceptApp
             }
             else
             {
-                MessageBox.Show("Please create a new sales order before completing order.", "No Sales Order Created", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please create a new sales order before completing order or add bins to the current sale.", 
+                    "No Sales Order Created", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        /// <summary>
+        /// Clears all the controls on the form
+        /// </summary>
+        private void ClearForm()
+        {
+            txtBinSize.Clear();
+            txtHoursWorked.Clear();
+            txtSalesOrder.Clear();
+
+            CheckBox[] checkBoxes = { chBSK, chBMW, ckB3VG, ckB4SIA, ckBAH2410, ckBAR7000, ckBAR8000, ckBFMB, ckBGN, ckBIP, ckBLA, ckBPH };
+            foreach (CheckBox box in checkBoxes)
+            {
+                if (box.Checked)
+                {
+                    box.Checked = false;
+                }
+            }
+
+            btnAddSale.Enabled = true;
+            dgvCurrentSale.DataSource = null;
+        }
+
+        private void cboCustomers_Click(object sender, EventArgs e)
+        {
+            bindComboBox();
         }
     }
 }

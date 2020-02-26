@@ -26,6 +26,7 @@ namespace ConceptApp
             {
                 this.Hide();
                 Form mainForm = new Main();
+                mainForm.Show();
             }
         }
     }

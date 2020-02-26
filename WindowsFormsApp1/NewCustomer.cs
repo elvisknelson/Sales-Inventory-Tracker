@@ -33,7 +33,7 @@ namespace ConceptApp
 
         private void BindGrid()
         {
-            dgvCustomers.DataSource = dataService.GetDataTable("SELECT Name AS 'Customer Name', Address FROM CUSTOMERS");
+            dgvCustomers.DataSource = dataService.GetDataTable("SELECT Id AS 'Customer Id', Name AS 'Customer Name', Address FROM CUSTOMERS");
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -91,8 +91,8 @@ namespace ConceptApp
 
         private void deleteCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to Delete " + dgvCustomers.Rows[row].Cells[0].Value.ToString(),
-                                                   "Confirm Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Are you sure you want to Delete " + dgvCustomers.Rows[row].Cells[1].Value.ToString(),
+                                                   "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(result == DialogResult.Yes)
             {
                 try
@@ -100,15 +100,15 @@ namespace ConceptApp
                     using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                     {
                         connection.Open();
-                        string sql = "DELETE FROM CUSTOMERS WHERE Name = '" + dgvCustomers.Rows[row].Cells[0].Value.ToString() + "'";
+                        string sql = "DELETE FROM CUSTOMERS WHERE Id = " + dgvCustomers.Rows[row].Cells[0].Value.ToString();
                         using (SqlCommand cmd = new SqlCommand(sql, connection))
                         {
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show(dgvCustomers.Rows[row].Cells[0].Value.ToString() + " Deleted Successfully");
-                    dgvCustomers.DataSource = dataService.GetDataTable("SELECT Name AS 'Customer Name', Address FROM CUSTOMERS");
+                    MessageBox.Show(dgvCustomers.Rows[row].Cells[1].Value.ToString() + " Deleted Successfully");
+                    dgvCustomers.DataSource = dataService.GetDataTable("SELECT Id AS 'Customer Id', Name AS 'Customer Name', Address FROM CUSTOMERS");
                 }
                 catch (SqlException ex)
                 {

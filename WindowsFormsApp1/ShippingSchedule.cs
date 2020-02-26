@@ -12,6 +12,8 @@ namespace ConceptApp
 {
     public partial class ShippingSchedule : UserControl
     {
+        private DataService _dataService = new DataService();
+
         public ShippingSchedule()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace ConceptApp
 
         private void ShippingSchedule_Load(object sender, EventArgs e)
         {
-
+            dgvShippingSchedule.DataSource = _dataService.GetDataTable("SELECT * FROM SALES");
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConceptApp.Properties {
+namespace WindowsFormsApp1.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ConceptApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ConceptApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WindowsFormsApp1.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace ConceptApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap concept {
+        internal static System.Drawing.Bitmap concept1 {
             get {
-                object obj = ResourceManager.GetObject("concept", resourceCulture);
+                object obj = ResourceManager.GetObject("concept1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

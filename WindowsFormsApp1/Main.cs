@@ -30,6 +30,7 @@ namespace ConceptApp
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            pbLogo.Hide();
             if(e.Node.IsSelected)
             {
                 if(e.Node.Name == "AddSaleNode")
@@ -103,6 +104,11 @@ namespace ConceptApp
                     }
                 }
             }
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
