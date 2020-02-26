@@ -3,8 +3,6 @@ C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Releas
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Release\WindowsFormsApp1.pdb
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Release\System.Data.SqlClient.dll
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\bin\Release\System.Data.SqlClient.xml
-C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\InventoryTracker.csprojAssemblyReference.cache
-C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\ConceptApp.BinDetails.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\ConceptApp.NewCustomer.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\ConceptApp.SearchCustomer.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\ConceptApp.SearchSales.resources
@@ -17,3 +15,5 @@ C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Releas
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\InventoryTracker.csproj.CopyComplete
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\WindowsFormsApp1.exe
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\WindowsFormsApp1.pdb
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\ConceptApp.SaleDetails.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Release\ConceptApp.ShippingSchedule.resources

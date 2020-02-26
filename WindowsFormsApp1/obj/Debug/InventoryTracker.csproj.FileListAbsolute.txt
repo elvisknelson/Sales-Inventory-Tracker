@@ -29,6 +29,5 @@ C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.Login.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.Main.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.NewSale.resources
-C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csprojAssemblyReference.cache
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.SaleDetails.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.ShippingSchedule.resources

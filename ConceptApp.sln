@@ -5,16 +5,20 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTracker", "WindowsFormsApp1\InventoryTracker.csproj", "{74FA0683-4E08-4152-BCBD-12EF2D549DF2}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{4181BF3C-FEE8-4A00-8396-4E64A8827047}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74FA0683-4E08-4152-BCBD-12EF2D549DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74FA0683-4E08-4152-BCBD-12EF2D549DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74FA0683-4E08-4152-BCBD-12EF2D549DF2}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{74FA0683-4E08-4152-BCBD-12EF2D549DF2}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{74FA0683-4E08-4152-BCBD-12EF2D549DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74FA0683-4E08-4152-BCBD-12EF2D549DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4181BF3C-FEE8-4A00-8396-4E64A8827047}.Debug|Any CPU.ActiveCfg = Debug
+		{4181BF3C-FEE8-4A00-8396-4E64A8827047}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
