@@ -22,7 +22,8 @@ namespace ConceptApp
 
         private void BinDetails_Load(object sender, EventArgs e)
         {
-            dgvSaleDetails.DataSource = dataService.GetDataTable("SELECT Sales_Order AS 'Sales #', Size, Options FROM BINS WHERE Sales_Order = " + salesOrder);
+            dgvSaleDetails.DataSource = dataService.GetDataTable("SELECT Sales_Order AS 'Sales #', Size, Options, " +
+                "Winter_Bin AS 'Winter Bin', Painted AS 'Date Painted', Location FROM BINS WHERE Sales_Order = " + salesOrder);
         }
     }
 }

@@ -8,15 +8,12 @@ namespace ConceptApp
 {
     public static class Utility
     {
-        public static bool IsValidString(string str)
+        public static bool IsValidInt(string par)
         {
-            bool result = false;
+            bool result;
             int parseResult;
 
-            if (str.Length > 0 && int.TryParse(str, out parseResult))
-            {
-                result = true;
-            }
+            result = int.TryParse(par, out parseResult);
 
             return result;
         }

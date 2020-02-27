@@ -56,7 +56,7 @@ namespace ConceptApp
         private void btnAddSale_Click(object sender, EventArgs e)
         {
             
-            if(Utility.IsValidString(txtSalesOrder.Text))
+            if(Utility.IsValidInt(txtSalesOrder.Text))
             {
                 btnAddSale.Enabled = false;
                 sale = new Sale(Convert.ToInt32(txtSalesOrder.Text));
@@ -87,10 +87,18 @@ namespace ConceptApp
                         comma = ", ";
                     }
                 }
-
-                Bin bin = new Bin(sale.salesOrder, txtBinSize.Text, Convert.ToDateTime(dtpPromiseDate.Text), Convert.ToInt32(txtHoursWorked.Text), options);
-                sale.bins.Add(bin);
-                updateGrid();
+                    
+                if(Utility.IsValidInt(txtHoursWorked.Text))
+                {
+                    Bin bin = new Bin(sale.salesOrder, txtBinSize.Text, Convert.ToDateTime(dtpPromiseDate.Text), Convert.ToInt32(txtHoursWorked.Text), options, chBWinterBin.Checked);
+                    MessageBox.Show(chBWinterBin.Checked.ToString());
+                    sale.bins.Add(bin);
+                    updateGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Bin Hours Worked");
+                }
             }
             else
             {
@@ -137,12 +145,13 @@ namespace ConceptApp
 
                         foreach (Bin bin in sale.bins)
                         {
-                            string optionsql = "INSERT INTO BINS(Sales_Order, Size, Options) VALUES(@param1,@param2,@param3)";
+                            string optionsql = "INSERT INTO BINS(Sales_Order, Size, Options, Winter_Bin) VALUES(@param1,@param2,@param3, @param4)";
                             using (SqlCommand cmd = new SqlCommand(optionsql, connection))
                             {
                                 cmd.Parameters.Add("@param1", SqlDbType.Int).Value = txtSalesOrder.Text;
                                 cmd.Parameters.Add("@param2", SqlDbType.VarChar).Value = bin.binSize;
                                 cmd.Parameters.Add("@param3", SqlDbType.VarChar).Value = bin.options;
+                                cmd.Parameters.Add("@param4", SqlDbType.Bit).Value = bin.winterBin;
                                 cmd.CommandType = CommandType.Text;
                                 cmd.ExecuteNonQuery();
                             }

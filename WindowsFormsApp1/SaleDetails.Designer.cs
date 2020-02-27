@@ -36,12 +36,12 @@
             // 
             this.dgvSaleDetails.AllowUserToAddRows = false;
             this.dgvSaleDetails.AllowUserToDeleteRows = false;
+            this.dgvSaleDetails.AllowUserToOrderColumns = true;
             this.dgvSaleDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSaleDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSaleDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSaleDetails.Location = new System.Drawing.Point(0, 0);
             this.dgvSaleDetails.Name = "dgvSaleDetails";
-            this.dgvSaleDetails.ReadOnly = true;
             this.dgvSaleDetails.Size = new System.Drawing.Size(614, 317);
             this.dgvSaleDetails.TabIndex = 0;
             // 
