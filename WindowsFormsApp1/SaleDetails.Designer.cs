@@ -34,8 +34,6 @@
             this.txtNumBins = new System.Windows.Forms.TextBox();
             this.txtBinSize = new System.Windows.Forms.TextBox();
             this.txtBinOptions = new System.Windows.Forms.TextBox();
-            this.txtWinterBin = new System.Windows.Forms.TextBox();
-            this.txtPaintedDate = new System.Windows.Forms.TextBox();
             this.txtBinLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.chBWinterBin = new System.Windows.Forms.CheckBox();
+            this.dtpDatePainted = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleDetails)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -101,23 +101,9 @@
             this.txtBinOptions.Size = new System.Drawing.Size(172, 20);
             this.txtBinOptions.TabIndex = 5;
             // 
-            // txtWinterBin
-            // 
-            this.txtWinterBin.Location = new System.Drawing.Point(390, 131);
-            this.txtWinterBin.Name = "txtWinterBin";
-            this.txtWinterBin.Size = new System.Drawing.Size(100, 20);
-            this.txtWinterBin.TabIndex = 6;
-            // 
-            // txtPaintedDate
-            // 
-            this.txtPaintedDate.Location = new System.Drawing.Point(496, 131);
-            this.txtPaintedDate.Name = "txtPaintedDate";
-            this.txtPaintedDate.Size = new System.Drawing.Size(172, 20);
-            this.txtPaintedDate.TabIndex = 7;
-            // 
             // txtBinLocation
             // 
-            this.txtBinLocation.Location = new System.Drawing.Point(674, 131);
+            this.txtBinLocation.Location = new System.Drawing.Point(596, 131);
             this.txtBinLocation.Name = "txtBinLocation";
             this.txtBinLocation.Size = new System.Drawing.Size(172, 20);
             this.txtBinLocation.TabIndex = 8;
@@ -176,7 +162,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(387, 107);
+            this.label6.Location = new System.Drawing.Point(780, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 15);
             this.label6.TabIndex = 14;
@@ -186,17 +172,17 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(494, 107);
+            this.label7.Location = new System.Drawing.Point(387, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 15);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Painted Date";
+            this.label7.Text = "Date Painted";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(671, 107);
+            this.label8.Location = new System.Drawing.Point(593, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 15);
             this.label8.TabIndex = 16;
@@ -222,12 +208,30 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // chBWinterBin
+            // 
+            this.chBWinterBin.AutoSize = true;
+            this.chBWinterBin.Location = new System.Drawing.Point(783, 131);
+            this.chBWinterBin.Name = "chBWinterBin";
+            this.chBWinterBin.Size = new System.Drawing.Size(15, 14);
+            this.chBWinterBin.TabIndex = 18;
+            this.chBWinterBin.UseVisualStyleBackColor = true;
+            // 
+            // dtpDatePainted
+            // 
+            this.dtpDatePainted.Location = new System.Drawing.Point(390, 131);
+            this.dtpDatePainted.Name = "dtpDatePainted";
+            this.dtpDatePainted.Size = new System.Drawing.Size(200, 20);
+            this.dtpDatePainted.TabIndex = 19;
+            // 
             // SaleDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(923, 500);
+            this.Controls.Add(this.dtpDatePainted);
+            this.Controls.Add(this.chBWinterBin);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -238,8 +242,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBinLocation);
-            this.Controls.Add(this.txtPaintedDate);
-            this.Controls.Add(this.txtWinterBin);
             this.Controls.Add(this.txtBinOptions);
             this.Controls.Add(this.txtBinSize);
             this.Controls.Add(this.txtNumBins);
@@ -267,8 +269,6 @@
         private System.Windows.Forms.TextBox txtNumBins;
         private System.Windows.Forms.TextBox txtBinSize;
         private System.Windows.Forms.TextBox txtBinOptions;
-        private System.Windows.Forms.TextBox txtWinterBin;
-        private System.Windows.Forms.TextBox txtPaintedDate;
         private System.Windows.Forms.TextBox txtBinLocation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -280,5 +280,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.CheckBox chBWinterBin;
+        private System.Windows.Forms.DateTimePicker dtpDatePainted;
     }
 }
