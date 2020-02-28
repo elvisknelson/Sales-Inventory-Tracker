@@ -37,6 +37,7 @@
             this.dgvShippingSchedule.AllowUserToAddRows = false;
             this.dgvShippingSchedule.AllowUserToDeleteRows = false;
             this.dgvShippingSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvShippingSchedule.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvShippingSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShippingSchedule.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvShippingSchedule.Location = new System.Drawing.Point(313, 0);

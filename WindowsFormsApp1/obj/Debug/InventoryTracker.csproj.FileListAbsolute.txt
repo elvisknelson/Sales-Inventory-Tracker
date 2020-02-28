@@ -31,3 +31,5 @@ C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.NewSale.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.SaleDetails.resources
 C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.ShippingSchedule.resources
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\InventoryTracker.csprojAssemblyReference.cache
+C:\Users\Elvis'\source\repos\Sales-Inventory-Tracker\WindowsFormsApp1\obj\Debug\ConceptApp.AboutBox.resources

@@ -63,9 +63,19 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap concept1 {
+        internal static System.Drawing.Bitmap concept {
             get {
-                object obj = ResourceManager.GetObject("concept1", resourceCulture);
+                object obj = ResourceManager.GetObject("concept", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_black {
+            get {
+                object obj = ResourceManager.GetObject("Save_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

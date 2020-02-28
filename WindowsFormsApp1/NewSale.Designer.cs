@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewSale));
             this.btnAddSale = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpPromiseDate = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +42,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddBin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chBWinterBin = new System.Windows.Forms.CheckBox();
             this.ckBPH = new System.Windows.Forms.CheckBox();
             this.chBSK = new System.Windows.Forms.CheckBox();
             this.chBMW = new System.Windows.Forms.CheckBox();
@@ -58,15 +60,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtBinSize = new System.Windows.Forms.TextBox();
             this.btnCompleteSale = new System.Windows.Forms.Button();
-            this.chBWinterBin = new System.Windows.Forms.CheckBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentSale)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddSale
             // 
-            this.btnAddSale.Location = new System.Drawing.Point(772, 31);
+            this.btnAddSale.Location = new System.Drawing.Point(772, 62);
             this.btnAddSale.Name = "btnAddSale";
             this.btnAddSale.Size = new System.Drawing.Size(200, 23);
             this.btnAddSale.TabIndex = 35;
@@ -78,7 +88,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(440, 9);
+            this.label3.Location = new System.Drawing.Point(440, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 17);
             this.label3.TabIndex = 39;
@@ -86,7 +96,7 @@
             // 
             // dtpPromiseDate
             // 
-            this.dtpPromiseDate.Location = new System.Drawing.Point(443, 34);
+            this.dtpPromiseDate.Location = new System.Drawing.Point(443, 65);
             this.dtpPromiseDate.Name = "dtpPromiseDate";
             this.dtpPromiseDate.Size = new System.Drawing.Size(323, 20);
             this.dtpPromiseDate.TabIndex = 55;
@@ -95,7 +105,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(162, 9);
+            this.label5.Location = new System.Drawing.Point(162, 40);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 56;
@@ -105,7 +115,7 @@
             // 
             this.cboCustomers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustomers.FormattingEnabled = true;
-            this.cboCustomers.Location = new System.Drawing.Point(162, 33);
+            this.cboCustomers.Location = new System.Drawing.Point(162, 64);
             this.cboCustomers.Name = "cboCustomers";
             this.cboCustomers.Size = new System.Drawing.Size(275, 21);
             this.cboCustomers.TabIndex = 57;
@@ -115,7 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Location = new System.Drawing.Point(8, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 37;
@@ -123,7 +133,7 @@
             // 
             // txtSalesOrder
             // 
-            this.txtSalesOrder.Location = new System.Drawing.Point(11, 34);
+            this.txtSalesOrder.Location = new System.Drawing.Point(11, 65);
             this.txtSalesOrder.Name = "txtSalesOrder";
             this.txtSalesOrder.Size = new System.Drawing.Size(145, 20);
             this.txtSalesOrder.TabIndex = 36;
@@ -140,7 +150,7 @@
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(11, 90);
+            this.txtNotes.Location = new System.Drawing.Point(11, 121);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(961, 49);
@@ -150,7 +160,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 66);
+            this.label4.Location = new System.Drawing.Point(8, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 17);
             this.label4.TabIndex = 63;
@@ -164,9 +174,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtBinSize);
-            this.groupBox2.Location = new System.Drawing.Point(11, 145);
+            this.groupBox2.Location = new System.Drawing.Point(11, 176);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(961, 168);
+            this.groupBox2.Size = new System.Drawing.Size(961, 129);
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bin";
@@ -203,6 +213,16 @@
             this.groupBox1.TabIndex = 67;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
+            // 
+            // chBWinterBin
+            // 
+            this.chBWinterBin.AutoSize = true;
+            this.chBWinterBin.Location = new System.Drawing.Point(446, 49);
+            this.chBWinterBin.Name = "chBWinterBin";
+            this.chBWinterBin.Size = new System.Drawing.Size(92, 21);
+            this.chBWinterBin.TabIndex = 70;
+            this.chBWinterBin.Text = "Winter Bin";
+            this.chBWinterBin.UseVisualStyleBackColor = true;
             // 
             // ckBPH
             // 
@@ -372,7 +392,7 @@
             // 
             // btnCompleteSale
             // 
-            this.btnCompleteSale.Location = new System.Drawing.Point(772, 63);
+            this.btnCompleteSale.Location = new System.Drawing.Point(772, 91);
             this.btnCompleteSale.Name = "btnCompleteSale";
             this.btnCompleteSale.Size = new System.Drawing.Size(200, 23);
             this.btnCompleteSale.TabIndex = 68;
@@ -380,20 +400,74 @@
             this.btnCompleteSale.UseVisualStyleBackColor = true;
             this.btnCompleteSale.Click += new System.EventHandler(this.btnCompleteSale_Click);
             // 
-            // chBWinterBin
+            // toolStrip1
             // 
-            this.chBWinterBin.AutoSize = true;
-            this.chBWinterBin.Location = new System.Drawing.Point(446, 49);
-            this.chBWinterBin.Name = "chBWinterBin";
-            this.chBWinterBin.Size = new System.Drawing.Size(92, 21);
-            this.chBWinterBin.TabIndex = 70;
-            this.chBWinterBin.Text = "Winter Bin";
-            this.chBWinterBin.UseVisualStyleBackColor = true;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripSeparator1,
+            this.toolStripButton2,
+            this.toolStripSeparator2,
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator3,
+            this.toolStripComboBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(984, 25);
+            this.toolStrip1.TabIndex = 69;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
             // 
             // NewSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnCompleteSale);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
@@ -414,6 +488,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,5 +527,13 @@
         private System.Windows.Forms.TextBox txtBinSize;
         private System.Windows.Forms.Button btnCompleteSale;
         private System.Windows.Forms.CheckBox chBWinterBin;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }

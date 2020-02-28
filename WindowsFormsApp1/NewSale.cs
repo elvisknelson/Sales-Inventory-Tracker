@@ -14,17 +14,17 @@ namespace ConceptApp
     public partial class NewSale : UserControl
     {
         //TODO(Elvis): Mass validation (Validation class?)
-        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-        Sale sale;
-        DataService dataService = new DataService();
+        private SqlConnectionStringBuilder _builder = new SqlConnectionStringBuilder();
+        private Sale _sale;
+        private DataService _dataService = new DataService();
 
         public NewSale()
         {
             InitializeComponent();
-            builder.DataSource = "conceptserv.database.windows.net";
-            builder.UserID = "sysadm";
-            builder.Password = "Password42";
-            builder.InitialCatalog = "conceptDB";
+            _builder.DataSource = "conceptserv.database.windows.net";
+            _builder.UserID = "sysadm";
+            _builder.Password = "Password42";
+            _builder.InitialCatalog = "conceptDB";
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace ConceptApp
             if(Utility.IsValidInt(txtSalesOrder.Text))
             {
                 btnAddSale.Enabled = false;
-                sale = new Sale(Convert.ToInt32(txtSalesOrder.Text));
+                _sale = new Sale(Convert.ToInt32(txtSalesOrder.Text));
             }
             else
             {
@@ -74,7 +74,7 @@ namespace ConceptApp
         /// <param name="e"></param>
         private void btnAddBin_Click(object sender, EventArgs e)
         {
-            if(sale != null)
+            if(_sale != null)
             {
                 CheckBox[] checkBoxes = { chBSK, chBMW, ckB3VG, ckB4SIA, ckBAH2410, ckBAR7000, ckBAR8000, ckBFMB, ckBGN, ckBIP, ckBLA, ckBPH };
                 string options = "";
@@ -90,9 +90,8 @@ namespace ConceptApp
                     
                 if(Utility.IsValidInt(txtHoursWorked.Text))
                 {
-                    Bin bin = new Bin(sale.salesOrder, txtBinSize.Text, Convert.ToDateTime(dtpPromiseDate.Text), Convert.ToInt32(txtHoursWorked.Text), options, chBWinterBin.Checked);
-                    MessageBox.Show(chBWinterBin.Checked.ToString());
-                    sale.bins.Add(bin);
+                    Bin bin = new Bin(_sale.salesOrder, txtBinSize.Text, Convert.ToDateTime(dtpPromiseDate.Text), Convert.ToInt32(txtHoursWorked.Text), options, chBWinterBin.Checked);
+                    _sale.bins.Add(bin);
                     updateGrid();
                 }
                 else
@@ -111,7 +110,7 @@ namespace ConceptApp
         /// </summary>
         private void updateGrid()
         {
-            dgvCurrentSale.DataSource = sale.bins.ToList();
+            dgvCurrentSale.DataSource = _sale.bins.ToList();
         }
 
         /// <summary>
@@ -121,11 +120,11 @@ namespace ConceptApp
         /// <param name="e"></param>
         private void btnCompleteSale_Click(object sender, EventArgs e)
         {
-            if(sale != null && sale.bins.Count > 0)
+            if(_sale != null && _sale.bins.Count > 0)
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(_builder.ConnectionString))
                     {
                         connection.Open();
                         string sql = "INSERT INTO SALES(Sales_Order, Estimated_Hours, Actual_Hours, Promise_Date, Customer, Num_Bins, Notes) " +
@@ -137,13 +136,13 @@ namespace ConceptApp
                             cmd.Parameters.Add("@param3", SqlDbType.Int).Value = 55; //TODO(Elvis) Fix this 
                             cmd.Parameters.Add("@param4", SqlDbType.DateTime).Value = dtpPromiseDate.Text;
                             cmd.Parameters.Add("@param5", SqlDbType.VarChar).Value = cboCustomers.Text;
-                            cmd.Parameters.Add("@param6", SqlDbType.Int).Value = sale.bins.Count;
+                            cmd.Parameters.Add("@param6", SqlDbType.Int).Value = _sale.bins.Count;
                             cmd.Parameters.Add("@param7", SqlDbType.VarChar).Value = txtNotes.Text;
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
                         }
 
-                        foreach (Bin bin in sale.bins)
+                        foreach (Bin bin in _sale.bins)
                         {
                             string optionsql = "INSERT INTO BINS(Sales_Order, Size, Options, Winter_Bin) VALUES(@param1,@param2,@param3, @param4)";
                             using (SqlCommand cmd = new SqlCommand(optionsql, connection))
@@ -195,6 +194,11 @@ namespace ConceptApp
             dgvCurrentSale.DataSource = null;
         }
 
+        /// <summary>
+        /// Update ComboBox on click to guarantee latest data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboCustomers_Click(object sender, EventArgs e)
         {
             bindComboBox();
