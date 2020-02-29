@@ -13,17 +13,17 @@ namespace ConceptApp
 {
     public partial class NewCustomer : UserControl
     {
-        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-        DataService dataService = new DataService();
-        int row;
+        private SqlConnectionStringBuilder _builder = new SqlConnectionStringBuilder();
+        private DataService _dataService = new DataService();
+        private int _row;
 
         public NewCustomer()
         {
             InitializeComponent();
-            builder.DataSource = "conceptserv.database.windows.net";
-            builder.UserID = "sysadm";
-            builder.Password = "Password42";
-            builder.InitialCatalog = "conceptDB";
+            _builder.DataSource = "conceptserv.database.windows.net";
+            _builder.UserID = "sysadm";
+            _builder.Password = "Password42";
+            _builder.InitialCatalog = "conceptDB";
         }
 
         private void NewCustomer_Load(object sender, EventArgs e)
@@ -33,35 +33,20 @@ namespace ConceptApp
 
         private void BindGrid()
         {
-            dgvCustomers.DataSource = dataService.GetDataTable("SELECT Id AS 'Customer Id', Name AS 'Customer Name', Address FROM CUSTOMERS");
+            dgvCustomers.DataSource = _dataService.GetDataTable("SELECT Id AS 'Customer Id', Name AS 'Customer Name', Address FROM CUSTOMERS");
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             if(txtCustomerAddress.TextLength > 0 && txtCustomerName.TextLength > 0)
             {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                    {
-                        connection.Open();
-                        string sql = "INSERT INTO CUSTOMERS(Name, Address) VALUES(@param1, @param2)";
-                        using (SqlCommand cmd = new SqlCommand(sql, connection))
-                        {
-                            cmd.Parameters.Add("@param1", SqlDbType.VarChar).Value = txtCustomerName.Text;
-                            cmd.Parameters.Add("@param2", SqlDbType.VarChar).Value = txtCustomerAddress.Text;
-                            cmd.CommandType = CommandType.Text;
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    MessageBox.Show("Customer Added Successfully");
-                    BindGrid();
-                    ClearTextBoxes();
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                _dataService.AddData("CUSTOMERS", 
+                    new SqlParam("Name", SqlDbType.VarChar, txtCustomerName.Text), 
+                    new SqlParam("Address", SqlDbType.VarChar, txtCustomerAddress.Text));
+                
+                MessageBox.Show("Customer Added Successfully");
+                BindGrid();
+                ClearTextBoxes();
             }
             else
             {
@@ -83,7 +68,7 @@ namespace ConceptApp
 
                 if (currentMouseOverRow >= 0)
                 {
-                    row = currentMouseOverRow;
+                    _row = currentMouseOverRow;
                     cMSCustomer.Show(dgvCustomers, new Point(e.X, e.Y));
                 }
             }
@@ -91,24 +76,24 @@ namespace ConceptApp
 
         private void deleteCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to Delete " + dgvCustomers.Rows[row].Cells[1].Value.ToString(),
+            DialogResult result = MessageBox.Show("Are you sure you want to Delete " + dgvCustomers.Rows[_row].Cells[1].Value.ToString(),
                                                    "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(result == DialogResult.Yes)
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(_builder.ConnectionString))
                     {
                         connection.Open();
-                        string sql = "DELETE FROM CUSTOMERS WHERE Id = " + dgvCustomers.Rows[row].Cells[0].Value.ToString();
+                        string sql = "DELETE FROM CUSTOMERS WHERE Id = " + dgvCustomers.Rows[_row].Cells[0].Value.ToString();
                         using (SqlCommand cmd = new SqlCommand(sql, connection))
                         {
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show(dgvCustomers.Rows[row].Cells[1].Value.ToString() + " Deleted Successfully");
-                    dgvCustomers.DataSource = dataService.GetDataTable("SELECT Id AS 'Customer Id', Name AS 'Customer Name', Address FROM CUSTOMERS");
+                    MessageBox.Show(dgvCustomers.Rows[_row].Cells[1].Value.ToString() + " Deleted Successfully");
+                    dgvCustomers.DataSource = _dataService.GetDataTable("SELECT Id AS 'Customer Id', Name AS 'Customer Name', Address FROM CUSTOMERS");
                 }
                 catch (SqlException ex)
                 {

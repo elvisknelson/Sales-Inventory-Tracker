@@ -122,48 +122,26 @@ namespace ConceptApp
         {
             if(_sale != null && _sale.bins.Count > 0)
             {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(_builder.ConnectionString))
-                    {
-                        connection.Open();
-                        string sql = "INSERT INTO SALES(Sales_Order, Estimated_Hours, Actual_Hours, Promise_Date, Customer, Num_Bins, Notes) " +
-                                     "VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
-                        using (SqlCommand cmd = new SqlCommand(sql, connection))
-                        {
-                            cmd.Parameters.Add("@param1", SqlDbType.Int).Value = txtSalesOrder.Text;
-                            cmd.Parameters.Add("@param2", SqlDbType.Int).Value = txtHoursWorked.Text;
-                            cmd.Parameters.Add("@param3", SqlDbType.Int).Value = 55; //TODO(Elvis) Fix this 
-                            cmd.Parameters.Add("@param4", SqlDbType.DateTime).Value = dtpPromiseDate.Text;
-                            cmd.Parameters.Add("@param5", SqlDbType.VarChar).Value = cboCustomers.Text;
-                            cmd.Parameters.Add("@param6", SqlDbType.Int).Value = _sale.bins.Count;
-                            cmd.Parameters.Add("@param7", SqlDbType.VarChar).Value = txtNotes.Text;
-                            cmd.CommandType = CommandType.Text;
-                            cmd.ExecuteNonQuery();
-                        }
+                _dataService.AddData("SALES",
+                    new SqlParam("Sales_Order", SqlDbType.VarChar, txtSalesOrder.Text),
+                    new SqlParam("Estimated_Hours", SqlDbType.Int, txtHoursWorked.Text),
+                    new SqlParam("Actual_Hours", SqlDbType.Int, 55),
+                    new SqlParam("Promise_Date", SqlDbType.DateTime, dtpPromiseDate.Text),
+                    new SqlParam("Customer", SqlDbType.VarChar, cboCustomers.Text),
+                    new SqlParam("Num_Bins", SqlDbType.Int, _sale.bins.Count),
+                    new SqlParam("Notes", SqlDbType.VarChar, txtNotes.Text));
 
-                        foreach (Bin bin in _sale.bins)
-                        {
-                            string optionsql = "INSERT INTO BINS(Sales_Order, Size, Options, Winter_Bin) VALUES(@param1,@param2,@param3, @param4)";
-                            using (SqlCommand cmd = new SqlCommand(optionsql, connection))
-                            {
-                                cmd.Parameters.Add("@param1", SqlDbType.Int).Value = txtSalesOrder.Text;
-                                cmd.Parameters.Add("@param2", SqlDbType.VarChar).Value = bin.binSize;
-                                cmd.Parameters.Add("@param3", SqlDbType.VarChar).Value = bin.options;
-                                cmd.Parameters.Add("@param4", SqlDbType.Bit).Value = bin.winterBin;
-                                cmd.CommandType = CommandType.Text;
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-
-                        MessageBox.Show("Sale Created Successfully");
-                        ClearForm();
-                    }
-                }
-                catch (SqlException ex)
+                foreach (Bin bin in _sale.bins)
                 {
-                    MessageBox.Show(ex.ToString());
+                    _dataService.AddData("BINS",
+                        new SqlParam("Sales_Order", SqlDbType.Int, txtSalesOrder.Text),
+                        new SqlParam("Size", SqlDbType.VarChar, bin.binSize),
+                        new SqlParam("Options", SqlDbType.VarChar, bin.options),
+                        new SqlParam("Winter_Bin", SqlDbType.Bit, bin.winterBin));
                 }
+
+                MessageBox.Show("Sale Created Successfully");
+                ClearForm();
             }
             else
             {

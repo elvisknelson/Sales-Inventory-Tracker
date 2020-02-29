@@ -168,5 +168,8 @@
   <ItemGroup>
     <None Include="Resources\Save_black.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\grainbin.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,11 +10,11 @@ namespace ConceptApp
 {
     class SqlParam
     {
-        string column { get; set; }
-        SqlDbType type { get; set; }
-        string value { get; set; }
+        public string column { get; set; }
+        public SqlDbType type { get; set; }
+        public object value { get; set; }
 
-        public SqlParam(string _column, SqlDbType _type, string _value)
+        public SqlParam(string _column, SqlDbType _type, object _value)
         {
             column = _column;
             type = _type;

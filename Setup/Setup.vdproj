@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_485C26F1B88B4A3B902EA78FF0A84364"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A4DC2B556F6061D01B7B740F9C12F003"
         "OwnerKey" = "8:_3489969D485A4E3482A457BF8366F827"
         "MsmSig" = "8:_UNDEFINED"
@@ -33,8 +39,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EAD6BDA02CE3AF62BE6511754AB76EB5"
+        "MsmKey" = "8:_EB2D9A0F99C54631B6F8741E1DAB2FF5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F2CD6D00EE1243B3A4CB1732A6052441"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -47,6 +59,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A4DC2B556F6061D01B7B740F9C12F003"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EAD6BDA02CE3AF62BE6511754AB76EB5"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -104,6 +122,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -133,6 +167,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_485C26F1B88B4A3B902EA78FF0A84364"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\grainbin (1).ico"
+            "TargetName" = "8:grainbin (1).ico"
+            "Tag" = "8:"
+            "Folder" = "8:_DF31E779A5874374912C22A66DAB7B2D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A4DC2B556F6061D01B7B740F9C12F003"
             {
             "AssemblyRegister" = "3:1"
@@ -195,6 +249,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB2D9A0F99C54631B6F8741E1DAB2FF5"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\grainbin.ico"
+            "TargetName" = "8:grainbin.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_DF31E779A5874374912C22A66DAB7B2D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2CD6D00EE1243B3A4CB1732A6052441"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\grainbin.ico"
+            "TargetName" = "8:grainbin.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_DF31E779A5874374912C22A66DAB7B2D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -250,9 +344,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Sales/InventoryTracker"
+        "ProductName" = "8:SalesInventoryTracker"
         "ProductCode" = "8:{4BEA62EA-7828-4AEE-89BA-CC33A71A1ABE}"
-        "PackageCode" = "8:{8B7B38EB-9600-4F0F-B1B2-D4E6F393E8BB}"
+        "PackageCode" = "8:{B03CA7EB-FBCB-4F4C-B39E-5E480AB90A62}"
         "UpgradeCode" = "8:{3638454A-F767-4AA9-9A88-761630BD6D11}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -383,7 +477,7 @@
             "Target" = "8:_3489969D485A4E3482A457BF8366F827"
             "Folder" = "8:_74C5F21C775E4E53A661639E3BD66B63"
             "WorkingFolder" = "8:_DF31E779A5874374912C22A66DAB7B2D"
-            "Icon" = "8:"
+            "Icon" = "8:_485C26F1B88B4A3B902EA78FF0A84364"
             "Feature" = "8:"
             }
         }
@@ -787,7 +881,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3489969D485A4E3482A457BF8366F827"
             {
-            "SourcePath" = "8:..\\WindowsFormsApp1\\obj\\Release\\WindowsFormsApp1.exe"
+            "SourcePath" = "8:..\\WindowsFormsApp1\\obj\\Debug\\WindowsFormsApp1.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DF31E779A5874374912C22A66DAB7B2D"
